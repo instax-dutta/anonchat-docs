@@ -10,7 +10,6 @@ const inter = Inter({ subsets: ["latin"] })
 export const metadata = {
   title: "AnonChat - Secure and Anonymous Conversations",
   description: "Experience truly private and secure online conversations with AnonChat.",
-    generator: 'v0.dev'
 }
 
 export default function RootLayout({
@@ -30,6 +29,3 @@ export default function RootLayout({
   )
 }
 
-
-
-import './globals.css'

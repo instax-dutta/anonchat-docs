@@ -6,49 +6,49 @@ import Footer from "../../components/Footer"
 
 const securityFeatures = [
   {
-    icon: <Shield className="w-12 h-12 text-purple-400" />,
+    icon: <Shield className="w-12 h-12 text-primary" />,
     title: "Data Minimization",
     description:
       "We collect and store only the bare minimum of data required for the service to function, reducing the risk of data breaches.",
   },
   {
-    icon: <Lock className="w-12 h-12 text-purple-400" />,
+    icon: <Lock className="w-12 h-12 text-primary" />,
     title: "Robust Encryption",
     description:
       "State-of-the-art end-to-end encryption protocols protect all communications from interception, ensuring your messages remain private.",
   },
   {
-    icon: <Network className="w-12 h-12 text-purple-400" />,
+    icon: <Network className="w-12 h-12 text-primary" />,
     title: "Onion Routing",
     description:
       "We utilize onion routing to mask your IP address and location, providing an additional layer of anonymity to your communications.",
   },
   {
-    icon: <Trash2 className="w-12 h-12 text-purple-400" />,
+    icon: <Trash2 className="w-12 h-12 text-primary" />,
     title: "Ephemeral Data",
     description:
       "Self-destructing chats ensure your messages are automatically purged after the session ends, leaving no trace of your conversations.",
   },
   {
-    icon: <Eye className="w-12 h-12 text-purple-400" />,
+    icon: <Eye className="w-12 h-12 text-primary" />,
     title: "Privacy Monitoring",
     description:
       "Advanced features like screenshot detection add an extra layer of security by monitoring and logging potential privacy breaches.",
   },
   {
-    icon: <RefreshCw className="w-12 h-12 text-purple-400" />,
+    icon: <RefreshCw className="w-12 h-12 text-primary" />,
     title: "Regular Audits",
     description:
       "We conduct frequent security audits to ensure compliance with the latest security standards and practices, constantly improving our security measures.",
   },
   {
-    icon: <Key className="w-12 h-12 text-purple-400" />,
+    icon: <Key className="w-12 h-12 text-primary" />,
     title: "Perfect Forward Secrecy",
     description:
       "We implement perfect forward secrecy to ensure that even if a key is compromised, past communications remain secure.",
   },
   {
-    icon: <UserX className="w-12 h-12 text-purple-400" />,
+    icon: <UserX className="w-12 h-12 text-primary" />,
     title: "No Account Required",
     description:
       "Users can chat without creating an account, eliminating the risk of personal information being stored or leaked.",
@@ -75,10 +75,10 @@ const itemVariants = {
 
 export default function Security() {
   return (
-    <main className="min-h-screen py-20">
+    <main className="min-h-screen py-20 bg-gradient-to-b from-cod to-cod">
       <section className="container mx-auto px-4">
         <motion.h2
-          className="text-4xl font-bold text-center mb-12 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600"
+          className="text-4xl font-bold text-center mb-12 text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -100,8 +100,8 @@ export default function Security() {
               <motion.div className="mb-4" whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
                 {feature.icon}
               </motion.div>
-              <h3 className="text-xl font-semibold mb-2 text-purple-400">{feature.title}</h3>
-              <p className="text-gray-400">{feature.description}</p>
+              <h3 className="text-xl font-semibold mb-2 text-primary">{feature.title}</h3>
+              <p className="text-gallery">{feature.description}</p>
             </motion.div>
           ))}
         </motion.div>

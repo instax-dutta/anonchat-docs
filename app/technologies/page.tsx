@@ -7,32 +7,32 @@ import { useInView } from "react-intersection-observer"
 const technologies = [
   {
     name: "Next.js",
-    icon: <Server className="w-16 h-16 text-purple-400" />,
+    icon: <Server className="w-16 h-16 text-primary" />,
     description: "React framework for production-grade applications",
   },
   {
     name: "React",
-    icon: <Code className="w-16 h-16 text-purple-400" />,
+    icon: <Code className="w-16 h-16 text-primary" />,
     description: "JavaScript library for building user interfaces",
   },
   {
     name: "Tailwind CSS",
-    icon: <Palette className="w-16 h-16 text-purple-400" />,
+    icon: <Palette className="w-16 h-16 text-primary" />,
     description: "Utility-first CSS framework",
   },
   {
     name: "Framer Motion",
-    icon: <Zap className="w-16 h-16 text-purple-400" />,
+    icon: <Zap className="w-16 h-16 text-primary" />,
     description: "Production-ready motion library for React",
   },
   {
     name: "Rust",
-    icon: <Shield className="w-16 h-16 text-purple-400" />,
+    icon: <Shield className="w-16 h-16 text-primary" />,
     description: "Systems programming language for performance and safety",
   },
   {
     name: "WebAssembly",
-    icon: <Cpu className="w-16 h-16 text-purple-400" />,
+    icon: <Cpu className="w-16 h-16 text-primary" />,
     description: "Binary instruction format for a stack-based virtual machine",
   },
 ]
@@ -52,17 +52,17 @@ const TechCard = ({ tech, index }) => {
       className="bg-gray-800 rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
     >
       <div className="mb-4">{tech.icon}</div>
-      <h3 className="text-2xl font-bold mb-2 text-purple-400">{tech.name}</h3>
-      <p className="text-gray-300">{tech.description}</p>
+      <h3 className="text-2xl font-bold mb-2 text-primary">{tech.name}</h3>
+      <p className="text-gallery">{tech.description}</p>
     </motion.div>
   )
 }
 
 export default function TechnologiesPage() {
   return (
-    <div className="min-h-screen py-20 px-4 bg-gradient-to-b from-gray-900 to-gray-800">
+    <div className="min-h-screen py-20 px-4 bg-gradient-to-b from-cod to-cod">
       <motion.h1
-        className="text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-12 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600"
+        className="text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-12 text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary"
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
@@ -75,7 +75,7 @@ export default function TechnologiesPage() {
         ))}
       </div>
       <motion.p
-        className="text-center mt-12 text-gray-400 max-w-2xl mx-auto"
+        className="text-center mt-12 text-gallery max-w-2xl mx-auto"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.5 }}

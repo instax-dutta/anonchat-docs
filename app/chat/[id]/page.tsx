@@ -22,7 +22,7 @@ export default function ChatRoom() {
   }
 
   return (
-    <div className="min-h-screen flex flex-col bg-gray-900">
+    <div className="min-h-screen flex flex-col bg-gradient-to-b from-cod to-cod">
       <motion.div
         className="flex-grow overflow-y-auto p-4"
         initial={{ opacity: 0 }}
@@ -38,8 +38,10 @@ export default function ChatRoom() {
             transition={{ duration: 0.5 }}
           >
             <span
-              className={`inline-block p-2 rounded-lg ${
-                msg.sender === "user" ? "bg-purple-600 text-white" : "bg-gray-700 text-gray-200"
+              className={`inline-block rounded-2xl p-3 max-w-[80%] ${
+                msg.sender === "user"
+                  ? "bg-gradient-to-r from-primary to-secondary text-white"
+                  : "bg-gray-800 text-gallery"
               }`}
             >
               {msg.text}
@@ -59,10 +61,13 @@ export default function ChatRoom() {
             type="text"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
-            className="flex-grow p-2 rounded-l-lg border border-gray-700 bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+            className="flex-grow p-2 rounded-l-lg border border-gray-700 bg-gray-700 text-gallery focus:outline-none focus:ring-2 focus:ring-primary"
             placeholder="Type a message..."
           />
-          <button type="submit" className="bg-purple-600 text-white p-2 rounded-r-lg hover:bg-purple-700">
+          <button
+            type="submit"
+            className="bg-gradient-to-r from-primary to-secondary text-white p-2 rounded-r-lg hover:opacity-90"
+          >
             <Send />
           </button>
         </div>
