@@ -1,39 +1,45 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Shield, Lock, Trash2, FileX, Camera } from "lucide-react"
+import { Shield, Lock, Trash2, Network, Globe, Eye } from "lucide-react"
 import { useInView } from "react-intersection-observer"
 
 const features = [
   {
+    icon: <Network className="w-16 h-16 text-purple-400" />,
+    title: "Tor Hidden Services",
+    description:
+      "Chat rooms operate as .onion services, accessible only through Tor Browser, ensuring complete anonymity and untraceability.",
+  },
+  {
+    icon: <Globe className="w-16 h-16 text-purple-400" />,
+    title: "Dual Access System",
+    description:
+      "Public website accessible via regular browsers, while chat rooms are exclusively available through Tor Browser for enhanced security.",
+  },
+  {
     icon: <Shield className="w-16 h-16 text-purple-400" />,
     title: "Anonymous Chatting",
     description:
-      "Chat without revealing your identity. No personal information is required or stored, ensuring complete anonymity.",
+      "Chat without revealing your identity. No personal information required, and your IP address is completely masked through Tor.",
   },
   {
     icon: <Lock className="w-16 h-16 text-purple-400" />,
     title: "End-to-End Encryption",
     description:
-      "Your messages are encrypted from sender to receiver using state-of-the-art encryption, ensuring the privacy and security of your conversations.",
+      "Your messages are encrypted and routed through the Tor network, ensuring multiple layers of security and privacy.",
+  },
+  {
+    icon: <Eye className="w-16 h-16 text-purple-400" />,
+    title: "IP Address Masking",
+    description:
+      "Your real IP address is hidden through Tor's multi-layer routing system, making your location and identity untraceable.",
   },
   {
     icon: <Trash2 className="w-16 h-16 text-purple-400" />,
     title: "Self-Destructing Chats",
     description:
-      "Messages vanish when the chat ends, ensuring that no data is stored permanently. Your conversations remain truly ephemeral.",
-  },
-  {
-    icon: <FileX className="w-16 h-16 text-purple-400" />,
-    title: "No Logs Policy",
-    description:
-      "We don't store any of your conversations or data. Once your chat ends, it's gone forever, leaving no digital footprint.",
-  },
-  {
-    icon: <Camera className="w-16 h-16 text-purple-400" />,
-    title: "Screenshot Detection",
-    description:
-      "Get notified if someone takes a screenshot during your chat. This feature logs the action, adding an extra layer of security to your conversations.",
+      "Messages vanish when the chat ends, and .onion addresses become inactive, ensuring no trace of your conversations remains.",
   },
 ]
 
@@ -69,11 +75,22 @@ export default function FeaturesPage() {
       >
         Key Features
       </motion.h1>
-      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {features.map((feature, index) => (
           <FeatureCard key={index} feature={feature} index={index} />
         ))}
       </div>
+      <motion.div
+        className="mt-12 max-w-2xl mx-auto text-center"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.5 }}
+      >
+        <p className="text-gray-300">
+          Experience the perfect blend of accessibility and security with our unique dual-access system. Browse our
+          website normally, but chat with complete anonymity through Tor.
+        </p>
+      </motion.div>
     </div>
   )
 }

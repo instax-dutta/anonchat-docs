@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { MessageSquare, Share2, ShieldCheck, XCircle } from "lucide-react"
+import { MessageSquare, Share2, ShieldCheck, XCircle, Globe, Network } from "lucide-react"
 import { useInView } from "react-intersection-observer"
 
 const steps = [
@@ -9,25 +9,37 @@ const steps = [
     icon: <MessageSquare className="w-16 h-16 text-purple-400" />,
     title: "Create a Chat Room",
     description:
-      'Click on "Start Anonymous Chat" to generate a unique, random chat ID. This ensures that each chat room is secure and distinct.',
+      'Click on "Start Anonymous Chat" to generate a unique chat room. Each room is accessible through a .onion link, making it only accessible via Tor Browser.',
+  },
+  {
+    icon: <Network className="w-16 h-16 text-purple-400" />,
+    title: "Access via Tor",
+    description:
+      "Use Tor Browser to access your chat room's .onion link. This ensures your conversations are routed through the Tor network, making them completely untraceable.",
   },
   {
     icon: <Share2 className="w-16 h-16 text-purple-400" />,
     title: "Share the Link",
     description:
-      "Invite participants by sharing the generated chat room link. Only those with the link can join, maintaining the privacy of your conversation.",
+      "Share the .onion link with your chat participants. Remember, they'll need Tor Browser to access the chat room, ensuring everyone's privacy is protected.",
   },
   {
     icon: <ShieldCheck className="w-16 h-16 text-purple-400" />,
     title: "Secure and Anonymous Chat",
     description:
-      "Engage in encrypted, anonymous conversations within the chat room. Send text messages and upload files with complete privacy.",
+      "Engage in encrypted, anonymous conversations within the Tor hidden service. Your IP address and location are completely masked.",
   },
   {
     icon: <XCircle className="w-16 h-16 text-purple-400" />,
     title: "End Chat",
     description:
-      "Terminate the session at any time. All messages are immediately and permanently deleted, leaving no trace of the conversation.",
+      "Terminate the session at any time. All messages are immediately deleted, and the .onion address becomes inactive.",
+  },
+  {
+    icon: <Globe className="w-16 h-16 text-purple-400" />,
+    title: "Public Website Access",
+    description:
+      "While our main website is accessible through regular browsers, chat rooms are exclusively available through Tor Browser for maximum security.",
   },
 ]
 
@@ -63,11 +75,25 @@ export default function HowItWorksPage() {
       >
         How It Works
       </motion.h1>
-      <div className="max-w-4xl mx-auto space-y-8 sm:space-y-12">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {steps.map((step, index) => (
           <StepCard key={index} step={step} index={index} />
         ))}
       </div>
+      <motion.div
+        className="mt-12 max-w-2xl mx-auto text-center"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.5 }}
+      >
+        <p className="text-gray-300 mb-4">
+          Our unique approach combines a publicly accessible website with Tor hidden services for chat rooms, providing
+          the perfect balance between accessibility and security.
+        </p>
+        <p className="text-purple-400">
+          Download Tor Browser to access chat rooms and experience truly anonymous communication.
+        </p>
+      </motion.div>
     </div>
   )
 }

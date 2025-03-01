@@ -19,7 +19,7 @@ export default function Header() {
   return (
     <motion.header
       className={`fixed w-full z-50 transition-colors duration-300 ${
-        isScrolled ? "bg-gray-900/90 backdrop-blur-sm" : "bg-transparent"
+        isScrolled ? "bg-cod/90 backdrop-blur-sm" : "bg-transparent"
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
@@ -27,10 +27,8 @@ export default function Header() {
     >
       <div className="container mx-auto px-4 py-3 flex justify-between items-center">
         <Link href="/" className="flex items-center space-x-2">
-          <Lock className="w-6 h-6 text-purple-500" />
-          <span className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
-            AnonChat
-          </span>
+          <Lock className="w-6 h-6 text-primary" />
+          <span className="text-xl font-bold gradient-text">AnonChat</span>
         </Link>
         <nav>
           <ul className="flex space-x-4">
@@ -42,7 +40,7 @@ export default function Header() {
               <li key={item.name}>
                 <Link href={item.path}>
                   <motion.span
-                    className="text-sm text-gray-300 hover:text-purple-400 transition-colors cursor-pointer"
+                    className="text-sm text-white hover:text-primary transition-colors cursor-pointer"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >

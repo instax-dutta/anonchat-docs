@@ -13,7 +13,7 @@ export default function ChatRoom() {
   const { messages, sendMessage } = useSimulatedRealTimeChat()
   useScreenshotDetection()
 
-  const handleSendMessage = (e: React.FormEvent) => {
+  const handleSendMessage = (e) => {
     e.preventDefault()
     if (message.trim()) {
       sendMessage(message)
@@ -29,9 +29,9 @@ export default function ChatRoom() {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
       >
-        {messages.map((msg) => (
+        {messages.map((msg, index) => (
           <motion.div
-            key={msg.text + msg.sender + Math.random()}
+            key={index}
             className={`mb-4 ${msg.sender === "user" ? "text-right" : "text-left"}`}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -70,3 +70,4 @@ export default function ChatRoom() {
     </div>
   )
 }
+
