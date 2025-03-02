@@ -119,24 +119,19 @@ export default function Hero() {
 
   // Handle auto-scrolling
   useEffect(() => {
-    const scrollContainer = chatContainerRef.current
-    if (!scrollContainer) return
+    if (!chatContainerRef.current || messages.length === 0) return
 
+    const scrollContainer = chatContainerRef.current
+
+    // Scroll to bottom when messages change
     const smoothScroll = () => {
-      const lastMessage = scrollContainer.querySelector(".message:last-child")
-      if (lastMessage) {
-        lastMessage.scrollIntoView({
-          behavior: "smooth",
-          block: "end",
-        })
-      } else {
-        scrollContainer.scrollTop = scrollContainer.scrollHeight
-      }
+      scrollContainer.scrollTop = scrollContainer.scrollHeight
     }
 
-    const scrollTimeout = setTimeout(smoothScroll, 100)
+    // Small delay to ensure DOM has updated
+    const scrollTimeout = setTimeout(smoothScroll, 50)
     return () => clearTimeout(scrollTimeout)
-  }, [chatContainerRef])
+  }, [messages, isTyping]) // Add dependencies to ensure it runs when messages or typing state changes
 
   const messageVariants = {
     hidden: {
@@ -235,6 +230,8 @@ export default function Hero() {
                 style={{
                   scrollbarWidth: "none",
                   msOverflowStyle: "none",
+                  overflowY: "auto",
+                  scrollBehavior: "smooth",
                 }}
               >
                 <AnimatePresence mode="popLayout">
@@ -330,4 +327,3 @@ export default function Hero() {
     </section>
   )
 }
-
